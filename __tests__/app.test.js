@@ -21,8 +21,9 @@ describe('lab01 routes', () => {
 
   it('should copy original array and push new item into new array', async() => {
     const array = [1, 2, 3];
-    const newArray = await copyAndPush(array, 4);
+    const newArray = await copyAndPush(array, [4]);
 
+    expect(array).toEqual([1, 2, 3]);
     expect(newArray).toEqual([1, 2, 3, 4]);
   });
 });

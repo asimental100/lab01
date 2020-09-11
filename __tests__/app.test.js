@@ -5,6 +5,7 @@ const pool = require('../lib/utils/pool');
 
 const getName = require('../lib/getName');
 const copyAndPush = require('../lib/copyAndPush');
+const capitalizeAndFilter = require('../lib/capitalizeAndFilter');
 
 
 describe('lab01 routes', () => {
@@ -25,5 +26,12 @@ describe('lab01 routes', () => {
 
     expect(array).toEqual([1, 2, 3]);
     expect(newArray).toEqual([1, 2, 3, 4]);
+  });
+
+  it('should take in an array capitalize and filter strings that begin with f', async() => {
+    const strings = ['hi', 'i', 'am', 'fred', 'geoff'];
+    const filteredStrings = await capitalizeAndFilter(strings);
+
+    expect(filteredStrings).toEqual(['HI', 'I', 'AM', 'GEOFF']);
   });
 });

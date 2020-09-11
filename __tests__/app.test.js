@@ -6,6 +6,7 @@ const pool = require('../lib/utils/pool');
 const getName = require('../lib/getName');
 const copyAndPush = require('../lib/copyAndPush');
 const capitalizeAndFilter = require('../lib/capitalizeAndFilter');
+const fetchQuotes = require('../lib/fetchQuotes');
 
 
 describe('lab01 routes', () => {
@@ -33,5 +34,11 @@ describe('lab01 routes', () => {
     const filteredStrings = await capitalizeAndFilter(strings);
 
     expect(filteredStrings).toEqual(['HI', 'I', 'AM', 'GEOFF']);
+  });
+
+  it('get the quotes ', async() => {
+    const quote = fetchQuotes();
+
+    expect(quote).toEqual(expect.any(String));
   });
 });
